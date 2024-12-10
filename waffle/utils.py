@@ -22,7 +22,7 @@ def keyfmt(k: str, v: str | None = None) -> str:
     if v is None:
         key = prefix + k
     else:
-        key = prefix + hashlib.md5((k % v).encode('utf-8')).hexdigest()
+        key = prefix + hashlib.md5((k % v).encode('utf-8'), usedforsecurity=False).hexdigest()
     return key
 
 
